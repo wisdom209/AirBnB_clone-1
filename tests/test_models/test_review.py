@@ -5,7 +5,7 @@ from models.review import Review
 
 
 class test_review(test_basemodel):
-    """Test the defined class """
+    """Test the defined class review"""
 
     def __init__(self, *args, **kwargs):
         """Test the defined class """
