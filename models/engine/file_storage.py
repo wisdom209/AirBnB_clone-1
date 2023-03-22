@@ -36,8 +36,10 @@ class FileStorage:
 
     def delete(self, obj=None):
         """deletes value from object"""
-        self.all().pop(obj.to_dict()['__class__'] + '.' + obj.id)
-        self.save()
+        key = obj.to_dict()['__class__'] + '.' + obj.id
+        if key in self.__objects:
+            self.all().pop(obj.to_dict()['__class__'] + '.' + obj.id)
+            self.save()
 
     def reload(self):
         """Loads storage dictionary from file"""
