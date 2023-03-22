@@ -35,7 +35,7 @@ class test_fileStorage(unittest.TestCase):
             temp = obj
         self.assertTrue(temp is obj)
 
-    def test_all(self):
+    def test_all(self, cls=None):
         """ __objects is properly returned """
         new = BaseModel()
         temp = storage.all()
@@ -56,6 +56,12 @@ class test_fileStorage(unittest.TestCase):
 
     def test_save(self):
         """ FileStorage save method """
+        new = BaseModel()
+        storage.save()
+        self.assertTrue(os.path.exists('file.json'))
+
+    def test_delete(self):
+        """ FileStorage delete method """
         new = BaseModel()
         storage.save()
         self.assertTrue(os.path.exists('file.json'))
@@ -105,5 +111,4 @@ class test_fileStorage(unittest.TestCase):
     def test_storage_var_created(self):
         """ FileStorage object storage created """
         from models.engine.file_storage import FileStorage
-        print(type(storage))
         self.assertEqual(type(storage), FileStorage)
