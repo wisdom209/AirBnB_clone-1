@@ -128,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
 
         if args and len(args.split()) > 1:
             for i in args.split()[1:]:
-                search = re.search(r'(\w+=\"[a-zA-Z0-9-_]+\")', i)
+                search = re.search(r'(\w+=\".+\")', i)
                 if (search):
                     key = search.group().split('=')[0]
                     value = search.group().split('=')[1].strip('"').strip("'")
