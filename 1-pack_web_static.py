@@ -8,16 +8,17 @@ import os
 @task
 def do_pack():
     """make a tar archive"""
-    date = datetime.now().strftime("%Y%m%d%H%M%S")
-    tar_name = "web_static_{}".format(date)
     try:
+        date = datetime.now().strftime("%Y%m%d%H%M%S")
         if os.path.isdir("versions") is False:
             local("mkdir versions")
+        local('rm -rf git_folder')
         local('git clone https://github.com/wisdom209/AirBnB_clone git_folder')
-        local("tar -czvf versions/{}.tgz -C\
-        git_folder/ web_static".format(tar_name))
+        local('cp -r git_folder/web_static .')
         local('rm -rf git_folder')
         file_name = "versions/web_static_{}.tgz".format(date)
+        local("tar -cvzf {} web_static".format(file_name))
+        local('rm -rf web_static')
         return file_name
-    except Exception:
+    except:
         return None
