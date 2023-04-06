@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """make a tarball of web_static files"""
 from fabric.api import local, task, settings
 from datetime import datetime
