@@ -7,7 +7,7 @@ import os
 
 @task
 def do_pack():
-    """make a tar archive"""  
+    """make a tar archive"""
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     tar_name = "web_static_{}".format(date)
     try:
@@ -21,4 +21,3 @@ def do_pack():
         return file_name
     except Exception:
         return None
-    
