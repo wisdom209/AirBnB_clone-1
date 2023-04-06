@@ -1,3 +1,5 @@
+requirements
+venv
 testing
 __pycache__
 main_delete.py
