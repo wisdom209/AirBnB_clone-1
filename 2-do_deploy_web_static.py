@@ -50,6 +50,7 @@ def do_deploy(archive_path):
         run('rm -rf /tmp/{}'.format(filename))
         # archive extracts to a folder webstatic, move the contents out,
         # so they stand alone directly under /data/releases/web_static/archive
+        # but first test if the archive subfolder webstatic exists already
         if run('test -e /data/web_static/releases/{}/web_static'
                .format(file_no_ext)).failed:
             run('mv -f /data/web_static/releases/{}/web_static\
@@ -60,6 +61,7 @@ def do_deploy(archive_path):
             format(file_no_ext))
         # delete old symbolic link
         run('rm -rf /data/web_static/current')
+        # map symbolic link to deployed files
         run('ln -sf /data/web_static/releases/{}/web_static/\
              /data/web_static/current'.
             format(file_no_ext))
