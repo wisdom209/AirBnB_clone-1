@@ -125,7 +125,7 @@ li::marker {
   content: "";
 }
 
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
 	.filters {
 	  background-color: white;
 	  height: 70px;
@@ -253,4 +253,4 @@ li::marker {
 	}
 
   }
-  
+   */
